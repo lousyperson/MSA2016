@@ -1,0 +1,10 @@
+browser-sync start --server --files "*"
+npm install -g bower yo gulp 
+npm install generator-webapp -g
+yo webapp
+gulp serve
+
+npm install generator-webapp -g
+npm install & bower install
+npm install -g gulp
+ graceful-fs lodash minimatch
