@@ -1,8 +1,4 @@
-// var currentWeather: Weather;
-
 var pageheader = $('#page-header')[0];
-var pagecontainer = $('#page-container')[0];
-
 var clicky = $("#clicky")[0];
 
 clicky.addEventListener("click", function () {
@@ -12,20 +8,7 @@ clicky.addEventListener("click", function () {
 function changeUI() : void {
     pageheader.innerHTML = "Loading weather from openweathermap.org...";
     getWeather();
-    // getWeather(function(weather) {
-    //     pageheader.innerHTML = "Current weather is: " + weather;
-    // });
 }
-
-
-// function changeUI() : void {
-//     pageheader.innerHTML = "Current weather is: " + currentWeather.weather;
-//     img.src = currentWeather.emoji;
-//     img.style.display = "block";
-
-//     refreshbtn.style.display = "inline";
-//     pagecontainer.style.marginTop = "20px";
-// }
 
 function getWeather() : void {
     var city = (<HTMLInputElement>document.getElementById("city")).value;
@@ -37,62 +20,32 @@ function getWeather() : void {
             if (data.cod == 404) {
                 pageheader.innerHTML = data.message + " - " + city;
             } else {
-                pageheader.innerHTML = "Current weather is: " + data.weather[0].main;
+                pageheader.innerHTML = "Current weather at " + city + " is: " + data.weather[0].main;
                 img.src = "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
+                getWeatherWallpaper(data.weather[0].main);
             }
         },
-        error: function (data) {
+        error: function () {
             alert("error");
         }
     })
-        // .done(function (data) {
-        //     pageheader.innerHTML = data.base;
-        // })
-        // .fail(function (data) {
-        //     pageheader.innerHTML = "error";
-        // })
-    // $.get('api.openweathermap.org/data/2.5/weather?q=' + city + '&APPID=14f7fe6958461d28b690d3cda8948696&units=metric', function (data) {
-    //     alert('page content: ');
-        // if (data.cod == "404") {
-        //     alert(data.message + " - " + city);
-        // } else {
-        //     pageheader.innerHTML = "osmehitn";
-        //     var weather = data.coord.lon;
-        //     callback(weather);
-        // }
-    // });
-        // .done(function (data) {
-        //     if (data.length != 0) {
-        //         var weather = data.weather[0].main;
-        //         callback(weather);
-        //     } else {
-        //         pageheader.innerHTML = "Hmm, we can't detect a human face in that photo. Try another?";
-        //     }
-        // })
-        // .fail(function (error) {
-        //     pageheader.innerHTML = "Sorry, something went wrong. :( Try again in a bit?";
-        //     console.log(error.getAllResponseHeaders());
-        // });
 }
 
-// class Weather {
-//     weather: string;
-//     city: string;
-//     country: string;
-//     constructor(city: string, country: string) {
-//         this.city = city;
-//         this.country = country;
-//     }
-// }
-
-// var clearDay : Weather = new Weather("clear sky", "http://openweathermap.org/img/w/01d.png");
-// not yet done with all the var
-
-// function getCurrWeather(weather : any) : Weather {
-//     currentWeather = 
-// }
-// not yet done as well
-
-// function init() : void {
-    
-// }
+function getWeatherWallpaper(weather) {
+    $.ajax({
+        url: 'https://pixabay.com/api/?key=3306965-05771dad55b346637163a7cbe&q=' + weather + '&per_page=200',
+        type: 'GET',
+        success: function (data) {
+            if (data.totalHits > 0) {
+                var random_URL = data.hits[Math.floor(Math.random() * data.hits.length)].webformatURL;
+                $("html").css("background-image", "url(" + encodeURI(random_URL) + ")");
+            }
+            else {
+                console.log('No hits');
+            }
+        },
+        error: function () {
+            alert("Error");
+        }
+    })
+}
