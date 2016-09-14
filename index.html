@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8">
         <title>My Weather Page</title>
         <!--Boostrap's CSS-->
         <link rel="stylesheet" type="text/css" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
@@ -15,14 +16,12 @@
             <h2 id="page-header">
                 Get weather based on the current location.
             </h2>
-            
+            <img id="selected-img" src="">
             <div class="text-area">
                 Enter the city name...<br>
-                <input type="text" id="city" placeholder="eg, Christchuch"><br>
-                <br>Enter the country code...<br>
-                <input type="text" id="country" placeholder="eg, NZ"><br><br>
+                <input type="text" id="city" value="Christchuch">
             </div>
-
+            <br>
             <button class="btn btn-info" id="clicky">Refresh weather</button>
         </div>
 
@@ -32,7 +31,7 @@
         <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
         <!--Custom Script-->
         <script src="./js/main.js"></script>
-
+        
         <!-- 
         To collect end-user usage analytics about your application, 
         insert the following script into each page you want to track.

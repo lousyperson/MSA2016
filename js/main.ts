@@ -29,9 +29,30 @@ function changeUI() : void {
 
 function getWeather() : void {
     var city = (<HTMLInputElement>document.getElementById("city")).value;
-    pageheader.innerHTML = city;
-    $.get('api.openweathermap.org/data/2.5/weather?q=' + city + '&APPID=14f7fe6958461d28b690d3cda8948696&units=metric', function (data) {
-        alert('page content: ' + data);
+    var img : HTMLImageElement = <HTMLImageElement>  $("#selected-img")[0];
+    $.ajax({
+        url: 'http://api.openweathermap.org/data/2.5/weather?q=' + city + '&APPID=14f7fe6958461d28b690d3cda8948696&units=metric',
+        type: "POST",
+        success: function (data) {
+            if (data.cod == 404) {
+                pageheader.innerHTML = data.message + " - " + city;
+            } else {
+                pageheader.innerHTML = "Current weather is: " + data.weather[0].main;
+                img.src = "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
+            }
+        },
+        error: function (data) {
+            alert("error");
+        }
+    })
+        // .done(function (data) {
+        //     pageheader.innerHTML = data.base;
+        // })
+        // .fail(function (data) {
+        //     pageheader.innerHTML = "error";
+        // })
+    // $.get('api.openweathermap.org/data/2.5/weather?q=' + city + '&APPID=14f7fe6958461d28b690d3cda8948696&units=metric', function (data) {
+    //     alert('page content: ');
         // if (data.cod == "404") {
         //     alert(data.message + " - " + city);
         // } else {
@@ -39,7 +60,7 @@ function getWeather() : void {
         //     var weather = data.coord.lon;
         //     callback(weather);
         // }
-    });
+    // });
         // .done(function (data) {
         //     if (data.length != 0) {
         //         var weather = data.weather[0].main;
