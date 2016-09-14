@@ -1,4 +1,5 @@
 var pageheader = $('#page-header')[0];
+var fortemp = $('#for-temp')[0];
 var clicky = $("#clicky")[0];
 clicky.addEventListener("click", function () {
     changeUI();
@@ -18,8 +19,9 @@ function getWeather() {
                 pageheader.innerHTML = data.message + " - " + city;
             }
             else {
-                pageheader.innerHTML = "Current weather at " + city + " is: " + data.weather[0].main;
+                pageheader.innerHTML = "Current weather at " + city + ", " + data.sys.country + " is:<br>" + data.weather[0].main;
                 img.src = "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
+                fortemp.innerHTML = "Temperature is about " + data.main.temp + "&#8451";
                 getWeatherWallpaper(data.weather[0].main);
             }
         },
