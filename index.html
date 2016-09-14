@@ -16,13 +16,21 @@
                 Get weather based on the current location.
             </h2>
             
-            <div class="text-box">
-                <label>Enter the city name...</label>
-                <label>Enter the country code...</label>
+            <div class="text-area">
+                Enter the city name...<br>
+                <input type="text" id="city" value="eg, Christchuch"><br>
+                <br>Enter the country code...<br>
+                <input type="text" id="country" value="eg, NZ"><br><br>
             </div>
 
-            <button type="button" class="btn btn-info" id="refreshbtn">Refresh weather</button>
+            <button type="button" class="btn btn-info" id="clicky" onclick="myFunction()">Refresh weather</button>
         </div>
+
+        <script>
+            function myFunction() {
+            var x = document.getElementById("city").value;
+            document.getElementById("page-header").innerHTML = x;
+        </script>
 
         <!--jQuery Script-->
         <script src="./node_modules/jquery/dist/jquery.min.js"></script>

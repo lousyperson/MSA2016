@@ -1,0 +1,21 @@
+html { 
+  background: url("http://wallpaperrs.com/uploads/nature/clear-sky-wide-wallpaper-35818.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;  
+}
+
+body {
+    color: white;
+    background-color: transparent;
+    text-align: center;
+}
+
+#city {
+    color: #3498db;
+}
+
+#country {
+    color: #3498db;
+}
