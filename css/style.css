@@ -19,3 +19,9 @@ body {
 #country {
     color: #3498db;
 }
+
+footer{
+ position:fixed;
+ bottom:20px;
+ right: 20px;
+}
