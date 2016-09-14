@@ -6,9 +6,17 @@ var pagecontainer = $('#page-container')[0];
 var clicky = $("#clicky")[0];
 
 clicky.addEventListener("click", function () {
-    pageheader.innerHTML = "Just a sec while we analyse get the weather from openweathermap.org :)";
-    // getweather(currentWeather);
+    changeUI();
 });
+
+function changeUI() : void {
+    pageheader.innerHTML = "Loading weather from openweathermap.org...";
+    getWeather();
+    // getWeather(function(weather) {
+    //     pageheader.innerHTML = "Current weather is: " + weather;
+    // });
+}
+
 
 // function changeUI() : void {
 //     pageheader.innerHTML = "Current weather is: " + currentWeather.weather;
@@ -19,25 +27,32 @@ clicky.addEventListener("click", function () {
 //     pagecontainer.style.marginTop = "20px";
 // }
 
-// function sendWeatherRequest(callback) : void {
-//     $.ajax({
-//         url: "api.openweathermap.org/data/2.5/weather?q=${cur.city},${cur.country}&APPID=14f7fe6958461d28b690d3cda8948696&units=metric",
-//         type: "POST",
-//         data: null
-//     })
-//         .done(function (data) {
-//             if (data.length != 0) {
-//                 var weather = data[0].weather;
-//                 callback(weather);
-//             } else {
-//                 pageheader.innerHTML = "Hmm, we can't detect a human face in that photo. Try another?";
-//             }
-//         })
-//         .fail(function (error) {
-//             pageheader.innerHTML = "Sorry, something went wrong. :( Try again in a bit?";
-//             console.log(error.getAllResponseHeaders());
-//         });
-// }
+function getWeather() : void {
+    var city = (<HTMLInputElement>document.getElementById("city")).value;
+    pageheader.innerHTML = city;
+    $.get('api.openweathermap.org/data/2.5/weather?q=' + city + '&APPID=14f7fe6958461d28b690d3cda8948696&units=metric', function (data) {
+        alert('page content: ' + data);
+        // if (data.cod == "404") {
+        //     alert(data.message + " - " + city);
+        // } else {
+        //     pageheader.innerHTML = "osmehitn";
+        //     var weather = data.coord.lon;
+        //     callback(weather);
+        // }
+    });
+        // .done(function (data) {
+        //     if (data.length != 0) {
+        //         var weather = data.weather[0].main;
+        //         callback(weather);
+        //     } else {
+        //         pageheader.innerHTML = "Hmm, we can't detect a human face in that photo. Try another?";
+        //     }
+        // })
+        // .fail(function (error) {
+        //     pageheader.innerHTML = "Sorry, something went wrong. :( Try again in a bit?";
+        //     console.log(error.getAllResponseHeaders());
+        // });
+}
 
 // class Weather {
 //     weather: string;

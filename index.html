@@ -18,26 +18,20 @@
             
             <div class="text-area">
                 Enter the city name...<br>
-                <input type="text" id="city" value="eg, Christchuch"><br>
+                <input type="text" id="city" placeholder="eg, Christchuch"><br>
                 <br>Enter the country code...<br>
-                <input type="text" id="country" value="eg, NZ"><br><br>
+                <input type="text" id="country" placeholder="eg, NZ"><br><br>
             </div>
 
-            <button type="button" class="btn btn-info" id="clicky" onclick="myFunction()">Refresh weather</button>
+            <button class="btn btn-info" id="clicky">Refresh weather</button>
         </div>
-
-        <script>
-            function myFunction() {
-            var x = document.getElementById("city").value;
-            document.getElementById("page-header").innerHTML = x;
-        </script>
 
         <!--jQuery Script-->
         <script src="./node_modules/jquery/dist/jquery.min.js"></script>
         <!--Bootstrap Script-->
         <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
         <!--Custom Script-->
-        <script src="./js/test.js"></script>
+        <script src="./js/main.js"></script>
 
         <!-- 
         To collect end-user usage analytics about your application, 
