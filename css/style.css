@@ -20,8 +20,13 @@ body {
     color: #3498db;
 }
 
-footer{
- position:fixed;
+.footer{
+ /*position:fixed;
  bottom:20px;
- right: 20px;
+ right: 20px;*/
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height:100px;
 }
