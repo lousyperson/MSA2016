@@ -12,12 +12,19 @@ body {
     color: white;
     background-color: transparent;
     text-align: center;
+    height: 80%;
+}
 
-    margin: 0;
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.content {
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+
+.table-cell {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
 }
 
 h1 {
@@ -40,12 +47,8 @@ h2 {
     color: #3498db;
 }
 
-.footer{
- /*position:fixed;
- bottom:20px;
- right: 20px;*/
-
- position: fixed;
- bottom: 0;
- right: 0;
+footer{
+    position:fixed;
+    bottom:30px;
+    right: 100px;
 }
