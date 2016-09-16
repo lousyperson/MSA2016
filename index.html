@@ -7,6 +7,27 @@
         <link rel="stylesheet" type="text/css" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
         <!--Custom CSS-->
         <link rel="stylesheet" type="text/css" href="./css/style.css">
+        <!-- 
+        To collect end-user usage analytics about your application, 
+        insert the following script into each page you want to track.
+        Place this code immediately before the closing </head> tag,
+        and before any other scripts. Your first data will appear 
+        automatically in just a few seconds.
+        -->
+        <script type="text/javascript">
+        var appInsights=window.appInsights||function(config){
+            function r(config){t[config]=function(){var i=arguments;t.queue.push(function(){t[config].apply(t,i)})}}var t={config:config},u=document,e=window,o="script",
+            s=u.createElement(o),i,f;s.src=config.url||"https://az416426.vo.msecnd.net/scripts/a/ai.0.js";u.getElementsByTagName(o)[0].parentNode.appendChild(s);try
+            {t.cookie=u.cookie}catch(h){}for(t.queue=[],i=["Event","Exception","Metric","PageView","Trace","Dependency"];i.length;)r("track"+i.pop());return r
+            ("setAuthenticatedUserContext"),r("clearAuthenticatedUserContext"),config.disableExceptionTracking||(i="onerror",r("_"+i),f=e[i],e[i]=function(config,r,u,e,o){var s=f&&f
+            (config,r,u,e,o);return s!==!0&&t["_"+i](config,r,u,e,o),s}),t
+            }({
+                instrumentationKey:"e7543b54-4a8b-4033-8c87-1ff4b8e71c20"
+            });
+            
+            window.appInsights=appInsights;
+            appInsights.trackPageView();
+        </script>
     </head>
     <body>
         <!--<div id="fb-root"></div>
@@ -31,7 +52,7 @@
                 <h2 id="for-temp"></h2>
                 <div id="text-area">
                     Enter the city name...<br>
-                    <input type="text" id="city" value="Christchuch">
+                    <input type="text" id="city" value="Christchurch">
                 </div>
                 <br>
                 <button class="btn btn-info" id="clicky">Refresh weather</button>
@@ -44,30 +65,8 @@
         <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
         <!--Custom Script-->
         <script src="./js/main.js"></script>
-
-        <!-- 
-        To collect end-user usage analytics about your application, 
-        insert the following script into each page you want to track.
-        Place this code immediately before the closing </head> tag,
-        and before any other scripts. Your first data will appear 
-        automatically in just a few seconds.
-        -->
-        <script type="text/javascript">
-        var appInsights=window.appInsights||function(config){
-            function r(config){t[config]=function(){var i=arguments;t.queue.push(function(){t[config].apply(t,i)})}}var t={config:config},u=document,e=window,o="script",
-            s=u.createElement(o),i,f;s.src=config.url||"https://az416426.vo.msecnd.net/scripts/a/ai.0.js";u.getElementsByTagName(o)[0].parentNode.appendChild(s);try
-            {t.cookie=u.cookie}catch(h){}for(t.queue=[],i=["Event","Exception","Metric","PageView","Trace","Dependency"];i.length;)r("track"+i.pop());return r
-            ("setAuthenticatedUserContext"),r("clearAuthenticatedUserContext"),config.disableExceptionTracking||(i="onerror",r("_"+i),f=e[i],e[i]=function(config,r,u,e,o){var s=f&&f
-            (config,r,u,e,o);return s!==!0&&t["_"+i](config,r,u,e,o),s}),t
-            }({
-                instrumentationKey:"e7543b54-4a8b-4033-8c87-1ff4b8e71c20"
-            });
-            
-            window.appInsights=appInsights;
-            appInsights.trackPageView();
-        </script>
     </body>
-    
+
     <footer>
         <iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&layout=box_count&size=small&mobile_iframe=true&width=58&height=40&appId" width="58" height="40" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
 
