@@ -47,8 +47,18 @@ h2 {
     color: #3498db;
 }
 
-footer{
+footer {
     position:fixed;
-    bottom:30px;
-    right: 100px;
+    bottom:0;
+    width:100%;
+}
+
+.coded-by {
+    float: left;
+    margin-left: 30px;
+}
+
+.fb-share-button{
+    float: right;
+    margin-right: 30px;
 }
